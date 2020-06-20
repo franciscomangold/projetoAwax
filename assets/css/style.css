@@ -1120,13 +1120,53 @@ header {
 
         /* Adaptando section contact us */
     
+    .default.ligth.contact {
+        height: 500px;
+    }
+    .default .section-title {
+        font-size: 30px;
+    }
+    .default .section-desc {
+        margin: 0;
+        font-size: 15px;
+        margin-top: 20px;
+    }
     .section-contact {
         flex-direction: column;
-        padding: 0 0 20 40;
+        padding: 0 20 0 20;
+        height: 100%;
+    }    
+    .section-contact--nome {
+        display: flex;
+        height: 70px; 
+        width: 100%;      
+    }
+    .section-contact--email {
+        display: flex;
+        height: 70px;
+        width: 100%;
+    }
+    .section-contact--subject {
+        display: flex;
+        height: 70px;
+        width: 100%;
+    }
+    .section-contact--message {
+        display: flex;
+        height: 70px;
+        margin: 0;
+        width: 100%; 
+    }
+    .section-contact--nome input,
+    .section-contact--email input,
+    .section-contact--subject input,
+    .section-contact--message input {
+        font-size: 15px;
     }
     .section-contact--button {
         display: flex;
     }
+    
     
 
         /* Adaptando as imagens de section-map */
