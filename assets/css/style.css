@@ -1,0 +1,1231 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;        /* Para que seja respeitado o tamanho que vai ser definido em cada objeto, não alterando quando usar margin ou pdding*/
+} 
+body {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    overflow-x: hidden;            /* para ignorar todo o conteúdo que ultrapassar a horizontal (não ficar com a barra horizontal em baixo)*/
+    
+}  
+
+header {
+    height: 100px;
+    background-color: #000;
+    color: #FFF;
+}
+.header {
+    max-width: 900px;               /* O projeto original tem 1140px*/
+    height: 100px;    
+    margin: auto;
+    display: flex;
+    align-items: center;            /* Para centralizar o conteúdo */
+}
+.logo {
+    width: 100px;
+}
+.logoimg {
+    width: 80px;
+    height: 80px;
+    background-color: #B28756;
+    border-radius: 40px;
+}
+.menu-opener {                       /* Aparecer só nos celulares e tablet, parte responsiva */
+    display: none;
+}
+.menu {
+    flex: 1;                          /* Para ocupar o restante da div */
+    display: flex;
+    justify-content: flex-end;        /* Para que o conteúdo fique para a direita */
+}
+.menu ul,
+.menu li {
+    list-style: none;                 /* Para tirar a marcação das listas */
+}
+.menu ul {
+    display: flex;                    /* para deixar as listas uma do lado da outra(horizontal) e não uma debaixo da outra(vertical)*/
+
+}
+.menu li a {
+
+    color: #FFF;
+    text-transform: uppercase;         /* Para deixar os fontes em caixa alta */
+    font-weight: 600;
+    text-decoration: none;             /* Tirar o sublinhado padrão dos links */
+    display: flex;                     /* Para tirar o padrão do display-inline padrão do "a" e poder ajustar utilizando "flex", o traço que aparece ao passar o mouse */ 
+    align-items: center;               /* Ajustando ou itens, centralizando (para isso tem que abilitar "display:flex" */
+    border-bottom: 5px solid #000;   /* para que o texto não se mova ao passar o mouse, foi colocado uma borda preta */
+    height: 100px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.menu li a:hover,
+.menu .active a {
+    border-bottom: 4px solid #B28756;
+    color: aqua;
+}
+.button {
+    display: inline-block;                       /* para poder mexer em padding e margin sem alterar o tamanho definido */
+    background-color: #B28756;
+    color: #FFF;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 11px;
+    text-decoration: none;
+    padding: 10px 30px ;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+.banner {
+    height: calc(100vh - 100px);                 /* Colocar do tamanho do monitor, descontando os 100px do header */
+    background-color: rgb(180, 85, 85);
+    background-image: url('../images/bg.jpg');  /* Dois pontos para voltar uma pasta */
+    background-size: cover;                     /* cover opção para ajustar a imagem na tela*/
+    background-position: bottom;                /* Para priorizar(aparecer mais) a parte de baixo da imagem */
+    overflow: hidden;                           /* para que tudo que passe do tamanho seja ignorado, par manter a div.header sempre em cima, mesmo quando troca o slide */
+}
+.banner .sliders {
+    width: 1000vw;                               /* para dar um tamanho de 10 telas */
+    height: 100%;  
+
+}
+.banner .slide {
+    width: 100vW;                                /* para que o slide fique na largura da tela */
+    height: 100%;
+    display:inline-block;                        /* inline(para ficar um do lado do outro), block(para manter as proporcionalidades que foram setadas) */
+    background-color: rgba(0, 0, 0, 0.7);      /* Para colocar uma tela escura na frente da image */
+
+}
+.banner .slidearea {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;                     /* Centralizar horizontalmente */
+    align-items: center;                         /* Centralizar verticalmente */
+    color: #FFF;
+}
+.banner h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 40px;
+}
+.banner h1 span {
+    color: #B28756;
+}
+.banner h2 {
+    text-transform: uppercase;
+    margin-top: 20px;    
+}
+.banner .sliders-pointers {
+    width: 100vw;
+    height: 20px;    
+    position: absolute;
+    margin-top: -50px;                            /* para subir a div onde fica os pontos de seleção de sliders */
+    display: flex;                           
+    align-items: center;
+    justify-content: center;
+}
+.banner .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #B28756;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.banner .pointer.active {
+    background-color: #B28756;
+}
+.default {    
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+}
+.default .section-title,
+.default .section-desc {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.default .section-title{
+    font-size: 20px;
+    
+}
+.default .section-desc {
+    font-size: 12px;
+    color: #CCC;
+    margin-top: 11px;
+    margin-bottom: 40px;
+}
+.default .section-body {
+    max-width: 900px;
+    margin:auto;
+    /*margin: 0;*/
+}
+.default.ligth {
+    background-color: #FFF;
+}
+.default.ligth .section-title,
+.default.ligth .section-body {
+    color: black;
+}
+.default.dark {
+    background-color: black;
+}
+.default.dark .section-title, 
+.default.dark .section-body {
+    color: #FFF;
+}
+
+
+/*
+* CSS ÁREAS ESPECIFICAS
+*/
+.section-aboutus {
+    display: flex;
+}
+.section-aboutus--left {
+    flex: 1;
+}
+.section-aboutus--left p {
+   font-size: 14; 
+   line-height: 20px;                  /* Espaçamento entre linhas */
+}
+.section-aboutus--right {
+    width: 520px;
+    text-align: center;
+}
+.section-aboutus--right img {
+    width: 480px;
+    box-shadow: 0px 5px 10px #333;  /* Efeito esfumaçamento na imagem */
+
+}
+.section-services {
+    display: flex;
+}
+.section-service {
+    flex: 1;                           /* distribuir itens de igualmente em (section class="default dark") */
+    text-align: center;
+    border-right: 1px solid #333;
+    padding: 13px;                     /* espaçamento interno do conteúdo com a borda */
+}
+.section-service:first-child {         /* Aplicando uma borda na somente no primeiro elemento */
+    border-left: 1px solid #333;     /* Borda na esquerda */
+}
+.section-service h4 {
+    margin-top: 20px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.section-service p {
+    margin-top: 10px;
+    font-size: 10px;
+    color: #999;
+}
+.section-projects {
+    display: flex;
+    flex-direction: column;        /* Conteúdos em coluna*/
+    align-items: center;           /* Centralizar conteúdo */
+}
+.section-projects--filters {
+    border: 1px solid #CCC;
+    background-color: #EEE;
+    border-radius: 30px;
+    display: inline-block;          /* Pegar somente a área especifica (que tenha conteúdo) */
+    padding: 0px 20px;              /* Espaçamento 0px em cima e em baixo e 20px dos lados */
+
+}
+.section-projects--filters ul,
+.section-projects--filters li {
+    list-style: none;
+}
+.section-projects--filters li {
+    display: inline-block;
+    padding: 10px;
+    text-transform: uppercase;
+    font-size: 11px;
+    border-left: 1px solid #CCC;
+    color: #555;
+    border-bottom: 3px solid #EEE;
+    cursor: pointer;                 /* Ativar a mãonzinha quando passar o mouse */  
+}
+.section-projects--filters li:hover, 
+.section-projects--filters li.active{
+    border-bottom: 3px solid #B28756;    
+}
+.section-projects--filters li:first-child { /* Alterando primeiro item */
+    border-left: 0;                         /* Removendo borda */                    
+}
+
+                            /* Seção de fotos*/
+.section-projests--photos {
+    width: 100vw;
+    max-width: 900px;
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;                    /* Ajusta o tamanho das fotos com o tamanho da linha, permitindo quebra de linha e ajusta */
+    justify-content: center;            /* Centralizando o conteúdo */
+}
+.section-projects--photo {
+    width: 280px;
+
+}
+.section-projects--photoarea {
+    margin:10px;
+    width: 260px;
+    height: 160px;
+}
+.section-projects--photoarea img {
+    width: inherit;                     /* erda o tamnho do item anterior, no caso photoarea*/
+    height: inherit;
+}
+.section-projects--photoinfo {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: inherit;
+    height: inherit;
+    display: none;                      /* normalmente fica desabilitado, abilitando somente quando passar o mouse (configurado na linha ~295) */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+} 
+.section-projects--photoinfo h5 {
+    font-size: 16px;
+    font-weight: 600;
+}
+.section-projects--photoarea:hover .section-projects--photoinfo {
+    display: flex;
+}
+.bg-team {
+    background-image: url('../images/bg.jpg');
+    background-size: cover;                         /* cover opção para ajustar a imagem na tela*/
+    background-position: center;
+    padding: 0;
+}
+.section-team-area {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+.section-team {
+    overflow: hidden;                           /* removendo a area desperdiçada */
+    max-width: 900px;
+    margin: auto;                               /* Alinhar no meio (centralizar) */
+}
+.section-team .sliders {
+    width: 1000vw;                               /* para dar um tamanho de 10 telas */
+    height: 70%;  
+
+}
+.section-team .slide {
+    width: 240px;                                /* para que o slide fique na largura da tela */
+    height: 100%;
+    min-height: 300px;
+    max-height: 380px;
+    display:inline-block;                        /* inline(para ficar um do lado do outro), block(para manter as proporcionalidades que foram setadas) */
+    background-color: #FFF;
+    margin-right: 50px;
+    margin-top: 30px;   
+
+}
+.section-team .slidearea {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;                     /* Centralizar horizontalmente */
+    align-items: center;                         /* Centralizar verticalmente */
+    color: #000;
+    padding-bottom: 100px;
+}
+.section-team-area .sliders-pointers {
+    margin-top: 20px;
+    height: 20px;                          /* para subir a div onde fica os pontos de seleção de sliders */
+    display: flex;                           
+    align-items: center;
+    justify-content: center;
+}
+.section-team-area .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #B28756;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.section-team-area .pointer.active {
+    background-color: #B28756;
+}
+.section-team--avatar {
+    width: 150px;
+    height: auto;
+    margin-top: 50px;
+}
+.section-team--name {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 15px;
+    margin-top: 30px;
+}
+.section-team--role {
+    font-size: 13px;
+    color: #999;
+    margin-top: 5px;
+}
+.section-team--social {
+   display: flex; 
+   margin-top: 40px;
+}
+.section-team--social a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 10px;
+    background-color: #CCC;
+    margin-right: 10px;
+}
+.section-team--social a:hover {
+    background-color: #B28756;
+}
+
+.section-happyclients {    
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;                           /* removendo a area desperdiçada */
+    max-width: 1024px;
+    margin: auto; 
+    max-height: 90%;
+}
+.section-happyclients--avatar {
+    display: flex;
+    justify-content: center;    
+}
+.section-happyclients--avatar img {
+    height: 120px;
+    width: 120px;
+       
+}
+.section-happyclients--name {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    padding-top: 25px;
+}
+.section-happyclients--role {
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    color: #999;
+    margin-top: 5px;
+}
+.section-happyclients--quote {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+.section-happyclients--desc {
+    padding: 10px 200px 0px 200px;
+}
+.section-happyclients--desc p {
+    text-align: center;
+    line-height: 20px;
+}
+.section-happyclients .sliders-pointers {
+    margin-top: 20px;
+    height: 20px;                          /* para subir a div onde fica os pontos de seleção de sliders */
+    display: flex;                           
+    align-items: center;
+    justify-content: center;
+}
+.section-happyclients .pointer {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #B28756;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.section-happyclients .pointer.active {
+    background-color: #B28756;
+}
+.section-happyclients--patriocinadores {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    border-top: 2px solid #CCC;
+    width: 1024px;
+}
+.section-happyclients--patriocinadores .patriocindores {
+    display: flex;
+    padding: 20 0 0 0;
+    
+}
+.section-happyclients--patriocinadores .patriocindores img {
+    padding: 20px;    
+    width: 120px;
+    height: 70px;    
+}
+
+/* Section PRICE */
+
+.section.default.price {
+    display:block;
+    margin-top: 0;    
+    height: 100vw;
+    background-color: #EEE;
+    border-top: 2px solid #CCC;
+    border-bottom: 2px solid #CCC;    
+    max-width: 1024px;
+    max-height: 500px;   
+}
+.section-price--table {
+    display: flex;
+    justify-content: space-around;      /* para dividir e centralizar o espaço interno da div, dando um espaçamento igual aos conteúdos */
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+.section-table {
+    display: flex;    
+    flex-direction: column;
+    align-items: center;    
+    height: 250px;
+    width: 170px;
+    background-color: #FFF;
+    padding-top: 20px;
+}
+.tablenome {
+    font-size: 10px;
+    color: #000;
+    text-transform: uppercase; 
+
+}
+.tablevalor {
+   padding-top: 15px;
+}
+.tablesemana {
+    font-size: 9px;
+    color: #CCC;
+    margin-top: 2px;
+    padding-bottom: 15px;
+}
+.tabledesc {
+    font-size: 7px;
+    color: #999;
+    padding-bottom: 5px;
+}
+.tabletraco {
+    display: block;
+    text-align: center;
+    width: 10px;
+    height: 1px;
+    background-color: #999;
+    margin-bottom: 5px;
+}
+.tablebotao {
+    display: flex;
+    align-items: center;
+    height: 30px;
+    width: 80px;
+    background-color: rgb(43, 36, 36);
+    color: #FFF;
+    justify-content: center;
+    text-transform: uppercase;         /* Para deixar os fontes em caixa alta */
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 20px;
+    font-size: 10px;
+    margin-top: 10px;
+}
+.tablebotao:hover {
+    background-color: #B28756;
+}
+
+/* Section PREMIUM */
+.section-premium {
+    min-height: 300px;
+}
+.section-premium--conteudo {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-bottom: 2px solid #CCC;
+    padding-bottom: 20px;
+}
+.conteudo-img {
+    display: flex;
+    padding-left: 30px;
+    margin-right: 50px;
+}
+.conteudo-img img {
+    height: 200px;
+    width: auto;
+}
+.conteudo-desc {
+    display: flex;
+    flex-direction: column;
+    
+}
+.conteudo-desc--first {
+    display: flex;
+    padding-bottom: 15px;
+}
+.conteudo-desc--second {
+    display: flex;
+    padding-bottom: 15px;
+}
+.conteudo-desc--third {
+    display: flex;
+    padding-bottom: 15px;
+}
+.conteudo-desc--img {
+    margin-right: 15px;
+}
+.conteudo-desc--img img {
+    height: 18px;
+}
+.conteudo-desc--desc p{
+    font-size: 8px;
+    color: #999;
+    padding-top: 5px;
+}
+.conteudo-desc--desc h1 {
+    font-size: 12px;
+}
+.section-premium .sliders-pointers {
+    margin-top: 20px;
+    height: 20px;                          /* para subir a div onde fica os pontos de seleção de sliders */
+    display: flex;                           
+    align-items: center;
+    justify-content: center;
+}
+.section-premium .pointer {    
+    width: 15px;
+    height: 15px;
+    border: 2px solid #B28756;
+    border-radius: 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+.section-premium .pointer.active {
+    background-color: #B28756;
+}
+.section-premium--button {
+    display: flex;
+    justify-content: center;
+}
+
+/* SECTION SOME FACTS */
+
+.section-somes {
+    display: flex;    
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 30 0 30;   
+}
+.section-some,
+.section-some1 {
+    display: flex;    
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 25px;
+    padding-right: 25px
+    
+}
+.section-somes .section-some p,
+.section-some1 p {
+    text-align: justify;
+}
+.section-some,
+.section-some1{
+    flex: 1;                           /* distribuir itens de igualmente em (section class="default dark") */
+    text-align: center;
+    padding: 13px;                     /* espaçamento interno do conteúdo com a borda */
+}
+.section-service:first-child {         /* Aplicando uma borda na somente no primeiro elemento */
+    border-left: 1px solid #333;     /* Borda na esquerda */
+}
+.section-some h4,
+.section-some1 h4 {
+    display: flex;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 15px;
+}
+.section-some p,
+.section-some1 p {
+    padding: 0;
+    display: flex;
+    margin-top: 10px;
+    font-size: 8px;
+    color: #999; 
+    line-height: 15px;   
+}
+.somenumero {
+    display: flex;
+    color: #B28756;
+    font-size: 50px;
+}
+.section-some .sometraco,
+.section-some1 .sometraco{
+    display: flex;
+    width: 20px;
+    height: 2px;
+    background-color: #999;
+}
+.section-somes--social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    max-width: 1024px;
+    border-bottom: 2px solid #CCC;
+    padding-left: 200px;
+    padding-right: 200px;
+}
+.section-somes--socialicone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    
+}
+.section-somes--socialicone.linkedin,
+.section-somes--socialicone.facebook{
+    background-color: blueviolet;
+}
+.section-somes--socialicone.twitter {
+    background-color: #999;
+}
+.section-somes--socialicone.googleplus {
+    background-color: red;
+}
+.section-somes--socialicone.pinterest {
+    background-color: rgb(121, 5, 5);
+}
+
+/* SECTION CONTACT */
+
+.section-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 200px;
+    padding: 0 220 0 230;
+}
+.section-contact--nome {
+    display: flex;
+    width: 190px;
+    height: 40px;
+    margin-right: 20px;
+    border-bottom: 2px solid #999;
+}
+.section-contact--email {
+    display: flex;
+    width: 190px;
+    height: 40px;
+    border-bottom: 2px solid #999;
+}
+.section-contact--subject {
+    display: flex;
+    width: 400px;
+    height: 40px;
+    margin-top: 10px;
+    border-bottom: 2px solid #999;
+}
+.section-contact--message {
+    display: flex;
+    width: 400px;
+    height: 40px;
+    margin-top: 40px;
+    border-bottom: 2px solid #999;
+}
+.section-contact--nome input,
+.section-contact--email input,
+.section-contact--subject input {
+    width: 190px;
+    color: #999;
+    border: unset;
+    font-size: 10px;
+}
+.section-contact--subject input,
+.section-contact--message input {
+    width: 400px;
+    border: unset;
+    color: #999;
+    font-size: 10px;
+}
+.section-contact--button {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+}
+
+/* SECTION MAP */
+
+.section-map {
+    display: block;
+    background-image: url('../images/mapa.jpg');
+    background-size: cover;                         /* Para a imagem ficar com toda a area disponível */
+    background-position: center;                    /* Alinhar a imagem no meio */      
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+.section-map--area {    
+    height: 300px;
+    width: 100vw;
+    max-width: 900px;
+    margin: auto;
+    padding-top: 50px;
+}
+.section-map--info {
+    width: 50%;
+    padding: 0 0 0 30;
+    background-color: #FFF;
+    color: black;
+}
+.section-map--info-item {
+    display: flex;
+    align-items: center;
+    color: #999;
+    margin-bottom: 10px;
+}
+.section-map--info-item-img {
+    width: 30px;
+    height: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: #999; 
+    border-radius: 15px; 
+    margin-right: 15px;
+}
+.section-map--info-item-img img {
+    width: 15px;
+    height: auto;
+}
+
+/* SECTION RODAPÉ */
+
+.section-rodape {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    height: 300px;
+    width: 100%;
+    max-width: 1024px;
+    margin: auto;
+    padding: 0 60 0 60;
+}
+.section-rodape--socialmarca {
+    width: 294;
+    margin-top: 40px;
+}
+.section-rodape--text {
+    color: blanchedalmond;
+    width: 294;
+    margin-top: 40px;
+    padding-right: 20px;
+}
+.section-rodape--contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 294;
+    background-color: #333;
+    margin-top: 40px;
+    max-height: 180px;
+}
+.section-rodape--button {
+    display: flex;
+}
+.section-rodape--email {
+    display: flex;
+    justify-content: center;
+    height: 30px;
+    width: 200px;
+    border-bottom: 2px solid #999;
+    
+}
+.section-rodape--email input {
+    color: #999;
+    background-color: #333;
+    border: unset;
+    text-align: center;
+    font-size: 10px;
+}
+.section-rodape--social {    
+    display: flex; 
+ }
+ .section-rodape--social a {
+     display: inline-flex;
+     justify-content: center;
+     align-items: center;
+     width: 22px;
+     height: 22px;
+     border-radius: 10px;
+     background-color: #333;
+     margin-right: 10px;
+ }
+ .section-rodape--social a:hover {
+     background-color: #B28756;
+ }
+ .section-rodape--social-marca {
+     color: #FFF;
+     text-transform: uppercase;
+     margin-top: 150px;
+ }
+
+/* ÁREA RESPONSIVIDADE PARA iPad */
+
+@media (min-width:450px) and (max-width:800px) {
+    .logo {
+        margin-left: 30px;
+    }
+    .menu-opener {
+        display: block;
+        width: 40px;
+        margin-right: 30px;
+    }
+    nav {
+        /*display: none;                      /* Padrão fica desabilitado, o js que abilita */
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 70vw;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0
+    }
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu li a {
+        font-weight: bold;
+        height: 80px;
+        font-size: 25;
+        margin-left: 50px;
+        border: 0;
+    }
+    .menu li.active a {
+        border: 0;
+        color: #B28756;
+    }
+
+        /* Adaptando a imagen e texto de section-aboutus */
+
+    .section-aboutus {
+        flex-direction: column;
+    }
+    .section-aboutus--left {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 30px;
+    }
+    .section-aboutus--right {
+        width: auto;
+    }
+
+        /* Adaptando as imagens de section-service */
+
+    .section-services {
+        flex-wrap: wrap;
+    }
+    .section-service {
+        min-width: 50%;
+        margin-bottom: 30px;
+    }
+
+        /* Adaptando as imagens de section-team */
+
+    .section-team {
+        max-width: 530px;    /* 290px(slyde 1) + 290px(slyde 2) - 50px(margin-right slyde 3) = 530px */
+    }
+
+        /* Adaptando as imagens de section-map */
+     
+    .section-map {
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-bottom: 50px;
+        margin-top: 50px;
+    }
+    .section-map--area {
+        width: auto;
+    }
+    .section-map--info {
+        width: auto;
+        padding: 20px 20px 20px 20px;
+    }
+    .section-map--info-item {
+        margin-bottom: 20px;
+    }
+    .section-map--info-item:last-child {  /* Alterar somente o último item */
+        margin-bottom: 0;
+    }
+}
+
+
+/* ÁREA RESPONSIVIDADE PARA CELULARES */
+
+@media (max-width:450px) {
+    .logo {
+        margin-left: 30px;
+    }
+    .menu-opener {
+        display: block;
+        width: 40px;
+        margin-right: 30px;
+    }
+    nav {
+        display: none;                      /* Padrão fica desabilitado, o js que abilita */
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 70vw;
+        height: calc(100vh - 100px);
+        top: 100px;
+        right: 0
+    }
+    .menu ul {
+        flex-direction: column;
+    }
+
+    .menu li a {
+        font-weight: bold;
+        height: 60px;           /* Altura do menu(deixando as opções mais próximo) */
+        font-size: 20;
+        margin-left: 30px;
+        border: 0;
+    }
+    .menu li.active a {
+        border: 0;
+        color: #B28756;
+    }
+
+        /* Alterando o banner */
+
+    .banner h1 {
+        font-size: 30px;
+    }
+    .banner h2 {
+        font-size: 17px;
+    }
+
+        /* Adaptando a imagen e texto de section-aboutus */
+
+    .section-aboutus {
+        flex-direction: column;
+    }
+    .section-aboutus--left {
+        margin-left: 30px;
+        margin-right: 30px;
+        margin-top: 30px;
+    }
+    .section-aboutus--left .button {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+    .section-aboutus--right {
+        width: auto;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .section-aboutus--right img {
+        width: 100%;
+    }
+
+        /* Adaptando as imagens de section-service */
+
+    .section-services {
+        flex-wrap: wrap;
+    }
+    .section-service {
+        min-width: 100%;
+        margin-bottom: 30px;
+    }
+    .section-projects--filters {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+    .section-projects--photo {
+        width: 320px;
+    }
+    .section-projects--photoarea {
+        width: 300px;
+        height: 200px;
+    }
+
+        /* Adaptando as imagens de section-team */
+
+    .section-team {
+        max-width: 240px;    
+    }
+
+        /* Adaptando o texto de section-happyclients */
+
+    .section-happyclients--desc {
+        padding: 20;
+    }
+
+        /* Adaptando section-price */
+
+    .section.default.price {
+        height: auto;
+    }
+    .section-price--table {
+        padding: 0;
+    }
+
+        /* Adaptando section-premium */
+
+    .section-premium--conteudo {
+        display: block;
+
+    }
+    .section-premium--conteudo .conteudo-img {
+        margin: 0;
+        padding: 0px;
+    }
+    .section-premium--conteudo .conteudo-desc {
+        margin-top: 30px;
+    }
+
+        /* Adaptando section some facts */
+
+    .section-somes {
+        display: block;
+    }
+    .section-somes--social {
+        padding: 0 20 0 20;
+    }
+
+        /* Adaptando section contact us */
+    
+    .section-contact {
+        flex-direction: column;
+        padding: 0 0 20 40;
+    }
+    .section-contact--button {
+        display: flex;
+    }
+    
+
+        /* Adaptando as imagens de section-map */
+     
+    .section-map {
+        padding-bottom: 250px;
+        margin-top: 30px;
+        margin-top: 50px;
+    }
+    .section-map--area {
+        width: auto;
+    }
+    .section-map--info {
+        width: auto;
+        padding: 20px 20px 20px 20px;
+    }
+    .section-map--info-item {
+        margin-bottom: 20px;
+    }
+    .section-map--info-item:last-child {  /* Alterar somente o último item */
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
